@@ -1,0 +1,6 @@
+mcode = 3
+fcode = 6
+n = 50
+launches = 100
+psize = 10
+max_call_f = 10000
