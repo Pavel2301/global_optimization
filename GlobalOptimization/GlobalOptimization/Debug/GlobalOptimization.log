@@ -1,0 +1,36 @@
+﻿Сборка начата 23.03.2015 14:30:43.
+     1>Проект "C:\Users\Majo\Desktop\Neural Science\GlobalOptimization\GlobalOptimization\GlobalOptimization.vcxproj" в узле 2 (целевые объекты Build).
+     1>ClCompile:
+         C:\Program Files\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         main.cpp
+     1>c:\users\majo\desktop\neural science\globaloptimization\globaloptimization\point.h(16): warning C4244: инициализация: преобразование "std::chrono::system_clock::rep" в "const unsigned int", возможна потеря данных
+     1>c:\users\majo\desktop\neural science\globaloptimization\globaloptimization\testfun.h(20): warning C4244: инициализация: преобразование "std::chrono::system_clock::rep" в "const unsigned int", возможна потеря данных
+     1>c:\users\majo\desktop\neural science\globaloptimization\globaloptimization\utils.h(81): warning C4018: <: несоответствие типов со знаком и без знака
+     1>c:\users\majo\desktop\neural science\globaloptimization\globaloptimization\report.h(55): warning C4018: <: несоответствие типов со знаком и без знака
+     1>c:\users\majo\desktop\neural science\globaloptimization\globaloptimization\report.h(62): warning C4018: <: несоответствие типов со знаком и без знака
+     1>c:\users\majo\desktop\neural science\globaloptimization\globaloptimization\report.h(67): warning C4018: <: несоответствие типов со знаком и без знака
+     1>c:\users\majo\desktop\neural science\globaloptimization\globaloptimization\report.h(72): warning C4018: <: несоответствие типов со знаком и без знака
+     1>c:\users\majo\desktop\neural science\globaloptimization\globaloptimization\report.h(78): warning C4018: <: несоответствие типов со знаком и без знака
+     1>c:\users\majo\desktop\neural science\globaloptimization\globaloptimization\sa.h(9): warning C4244: инициализация: преобразование "std::chrono::system_clock::rep" в "const unsigned int", возможна потеря данных
+     1>c:\users\majo\desktop\neural science\globaloptimization\globaloptimization\person.h(164): warning C4244: инициализация: преобразование "std::chrono::system_clock::rep" в "const unsigned int", возможна потеря данных
+     1>c:\users\majo\desktop\neural science\globaloptimization\globaloptimization\person.h(183): warning C4244: инициализация: преобразование "std::chrono::system_clock::rep" в "const unsigned int", возможна потеря данных
+     1>c:\users\majo\desktop\neural science\globaloptimization\globaloptimization\person.h(197): warning C4244: инициализация: преобразование "std::chrono::system_clock::rep" в "const unsigned int", возможна потеря данных
+     1>c:\users\majo\desktop\neural science\globaloptimization\globaloptimization\population.h(6): warning C4244: инициализация: преобразование "std::chrono::system_clock::rep" в "const unsigned int", возможна потеря данных
+     1>c:\users\majo\desktop\neural science\globaloptimization\globaloptimization\difevo.h(9): warning C4244: инициализация: преобразование "std::chrono::system_clock::rep" в "const unsigned int", возможна потеря данных
+     1>c:\users\majo\desktop\neural science\globaloptimization\globaloptimization\particle.h(4): warning C4244: инициализация: преобразование "std::chrono::system_clock::rep" в "const unsigned int", возможна потеря данных
+     1>c:\users\majo\desktop\neural science\globaloptimization\globaloptimization\particle.h(71): warning C4018: <: несоответствие типов со знаком и без знака
+     1>c:\users\majo\desktop\neural science\globaloptimization\globaloptimization\swarm.h(97): warning C4018: <: несоответствие типов со знаком и без знака
+     1>c:\users\majo\desktop\neural science\globaloptimization\globaloptimization\swarm.h(112): warning C4018: <: несоответствие типов со знаком и без знака
+     1>c:\users\majo\desktop\neural science\globaloptimization\globaloptimization\geneparticle.h(50): warning C4018: <: несоответствие типов со знаком и без знака
+     1>c:\users\majo\desktop\neural science\globaloptimization\globaloptimization\geneparticle.h(179): warning C4244: инициализация: преобразование "std::chrono::system_clock::rep" в "const unsigned int", возможна потеря данных
+     1>c:\users\majo\desktop\neural science\globaloptimization\globaloptimization\popswarm.h(6): warning C4244: инициализация: преобразование "std::chrono::system_clock::rep" в "const unsigned int", возможна потеря данных
+     1>c:\users\majo\desktop\neural science\globaloptimization\globaloptimization\popswarm.h(163): warning C4018: <: несоответствие типов со знаком и без знака
+     1>c:\users\majo\desktop\neural science\globaloptimization\globaloptimization\popswarm.h(178): warning C4018: <: несоответствие типов со знаком и без знака
+       Link:
+         C:\Program Files\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Majo\Desktop\Neural Science\GlobalOptimization\Debug\GlobalOptimization.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Majo\Desktop\Neural Science\GlobalOptimization\Debug\GlobalOptimization.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Majo\Desktop\Neural Science\GlobalOptimization\Debug\GlobalOptimization.lib" /MACHINE:X86 Debug\main.obj
+         GlobalOptimization.vcxproj -> C:\Users\Majo\Desktop\Neural Science\GlobalOptimization\Debug\GlobalOptimization.exe
+     1>Сборка проекта "C:\Users\Majo\Desktop\Neural Science\GlobalOptimization\GlobalOptimization\GlobalOptimization.vcxproj" завершена (целевые объекты Build).
+
+Сборка успешно завершена.
+
+Затраченное время: 00:00:03.68
