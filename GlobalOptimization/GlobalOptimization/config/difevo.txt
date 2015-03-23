@@ -1,0 +1,2 @@
+mut_prob = 0.9
+alpha_gen = 2

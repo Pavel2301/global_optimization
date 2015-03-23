@@ -1,0 +1,4 @@
+initial_temperature = 10000
+end_temperature = 0.0001
+inner_iter = 50
+rate = 0.9

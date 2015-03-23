@@ -1,0 +1,8 @@
+tournament_size = 3
+mut_type = 1
+mut_prob = 0.9
+parents_size = 5
+children_size = 5
+num_k = 3
+a1 = 2
+a2 = 3
