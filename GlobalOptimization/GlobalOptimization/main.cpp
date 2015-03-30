@@ -55,7 +55,7 @@ void start_sa(const int &fcode, const int &n, const int &launches, const int &ma
 	config_file.close();
 	check_points_file(fcode, n);
 	ifstream points_file("points\\" + namefun[fcode] + "-" + to_string(n));
-	string output_fname = "results\\SimulatedAnnealing_" + namefun[fcode] + "_" + to_string(init_t) + "_" + to_string(end_t) + "_" + to_string(inner_iter) + "_" + to_string(rate) + ".csv";
+	string output_fname = "results\\SimulatedAnnealing_" + namefun[fcode] + "_" + to_string(n) + "_" + to_string(init_t) + "_" + to_string(end_t) + "_" + to_string(inner_iter) + "_" + to_string(rate) + ".csv";
 	FILE *output_file = freopen(output_fname.c_str(), "a", stdout);
 	vector<FullReport> fr(launches);
 	vector<double> final;
@@ -75,21 +75,11 @@ void start_sa(const int &fcode, const int &n, const int &launches, const int &ma
 		fr[i].print_full_report();
 		final.push_back(fr[i].show_report().back().show_value_function());
 	}
-
-	/*vector<double> temp;
-	for (int i = 0; i < fr[0].show_report_size(); i++)
-	{
-	for (int j = 0; j < launches; j++)
-	temp.push_back(fr[j].show_report()[i].show_value_function());
-	cout << point_to_comma(to_string(show_mean(temp))) << ";";
-	temp.clear();
-	}*/
-
 	print_mean(fr, launches);
 	points_file.close();
 	fclose(output_file);
 	stats stts = get_stats(final);
-	string stats_fname = "results\\Stats_SimulatedAnnealing_" + namefun[fcode] + "_" + to_string(init_t) + "_" + to_string(end_t) + "_" + to_string(inner_iter) + "_" + to_string(rate) + ".csv";
+	string stats_fname = "results\\Stats_SimulatedAnnealing_" + namefun[fcode] + "_" + to_string(n) + "_" + to_string(init_t) + "_" + to_string(end_t) + "_" + to_string(inner_iter) + "_" + to_string(rate) + ".csv";
 	FILE *stats_file = freopen(stats_fname.c_str(), "a", stdout);
 	cout_stats(stts);
 	fclose(stats_file);
@@ -111,7 +101,7 @@ void start_ga(const int &fcode, const int &n, const int &launches, const int &ps
 	config_file.close();
 	check_points_file(fcode, n);
 	ifstream points_file("points\\" + namefun[fcode] + "-" + to_string(n));
-	string output_fname = "results\\GeneticAlgorithm_" + namefun[fcode] + "_" + to_string(tourn_size) + "_" + to_string(mut_type) + "_" + to_string(mut_prob) + "_" + to_string(parents_size) + "_" + to_string(children_size) + "_" + to_string(num_k) + ".csv";
+	string output_fname = "results\\GeneticAlgorithm_" + namefun[fcode] + "_" + to_string(n) + "_" + to_string(tourn_size) + "_" + to_string(mut_type) + "_" + to_string(mut_prob) + "_" + to_string(parents_size) + "_" + to_string(children_size) + "_" + to_string(num_k) + ".csv";
 	FILE *output_file = freopen(output_fname.c_str(), "a", stdout);
 	vector<FullReport> fr(launches);
 	vector<double> final;
@@ -145,7 +135,7 @@ void start_ga(const int &fcode, const int &n, const int &launches, const int &ps
 	points_file.close();
 	fclose(output_file);
 	stats stts = get_stats(final);
-	string stats_fname = "results\\Stats_GeneticAlgorithm_" + namefun[fcode] + "_" + to_string(tourn_size) + "_" + to_string(mut_type) + "_" + to_string(mut_prob) + "_" + to_string(parents_size) + "_" + to_string(children_size) + "_" + to_string(num_k) + ".csv";
+	string stats_fname = "results\\Stats_GeneticAlgorithm_" + namefun[fcode] + "_" + to_string(n) + "_" + to_string(tourn_size) + "_" + to_string(mut_type) + "_" + to_string(mut_prob) + "_" + to_string(parents_size) + "_" + to_string(children_size) + "_" + to_string(num_k) + ".csv";
 	FILE *stats_file = freopen(stats_fname.c_str(), "a", stdout);
 	cout_stats(stts);
 	fclose(stats_file);
@@ -163,7 +153,7 @@ void start_difevo(const int &fcode, const int &n, const int &launches, const int
 	config_file.close();
 	check_points_file(fcode, n);
 	ifstream points_file("points\\" + namefun[fcode] + "-" + to_string(n));
-	string output_fname = "results\\DifEvo_" + namefun[fcode] + "_" + to_string(mut_prob) + "_" + to_string(alpha_gen) + ".csv";
+	string output_fname = "results\\DifEvo_" + namefun[fcode] + "_" + to_string(n) + "_" + to_string(mut_prob) + "_" + to_string(alpha_gen) + ".csv";
 	FILE *output_file = freopen(output_fname.c_str(), "a", stdout);
 	vector<FullReport> fr(launches);
 	vector<double> final;
@@ -197,7 +187,7 @@ void start_difevo(const int &fcode, const int &n, const int &launches, const int
 	points_file.close();
 	fclose(output_file);
 	stats stts = get_stats(final);
-	string stats_fname = "results\\Stats_DifEvo_" + namefun[fcode] + "_" + to_string(mut_prob) + "_" + to_string(alpha_gen) + ".csv";
+	string stats_fname = "results\\Stats_DifEvo_" + namefun[fcode] + "_" + to_string(n) + "_" + to_string(mut_prob) + "_" + to_string(alpha_gen) + ".csv";
 	FILE *stats_file = freopen(stats_fname.c_str(), "a", stdout);
 	cout_stats(stts);
 	fclose(stats_file);
@@ -214,7 +204,7 @@ void start_pso(const int &fcode, const int &n, const int &launches, const int &p
 	config_file.close();
 	check_points_file(fcode, n);
 	ifstream points_file("points\\" + namefun[fcode] + "-" + to_string(n));
-	string output_fname = "results\\PSO_" + namefun[fcode] + "_" + to_string(a1) + "_" + to_string(a2) + ".csv";
+	string output_fname = "results\\PSO_" + namefun[fcode] + "_" + to_string(n) + "_" + to_string(a1) + "_" + to_string(a2) + ".csv";
 	FILE *output_file = freopen(output_fname.c_str(), "a", stdout);
 	vector<FullReport> fr(launches);
 	vector<double> final;
@@ -248,7 +238,7 @@ void start_pso(const int &fcode, const int &n, const int &launches, const int &p
 	points_file.close();
 	fclose(output_file);
 	stats stts = get_stats(final);
-	string stats_fname = "results\\Stats_PSO_" + namefun[fcode] + "_" + to_string(a1) + "_" + to_string(a2) + ".csv";
+	string stats_fname = "results\\Stats_PSO_" + namefun[fcode] + "_" + to_string(n) + "_" + to_string(a1) + "_" + to_string(a2) + ".csv";
 	FILE *stats_file = freopen(stats_fname.c_str(), "a", stdout);
 	cout_stats(stts);
 	fclose(stats_file);
@@ -272,7 +262,7 @@ void start_gapso(const int &fcode, const int &n, const int &launches, const int 
 	config_file.close();
 	check_points_file(fcode, n);
 	ifstream points_file("points\\" + namefun[fcode] + "-" + to_string(n));
-	string output_fname = "results\\GA_PSO_" + namefun[fcode] + "_" + to_string(tourn_size) + "_" + to_string(mut_type) + "_" + to_string(mut_prob) + "_" + to_string(parents_size) + "_" + to_string(children_size) + "_" + to_string(num_k) + "_" + to_string(a1) + "_" + to_string(a2) + ".csv";
+	string output_fname = "results\\GA_PSO_" + namefun[fcode] + "_" + to_string(n) + "_" + to_string(tourn_size) + "_" + to_string(mut_type) + "_" + to_string(mut_prob) + "_" + to_string(parents_size) + "_" + to_string(children_size) + "_" + to_string(num_k) + "_" + to_string(a1) + "_" + to_string(a2) + ".csv";
 	FILE *output_file = freopen(output_fname.c_str(), "a", stdout);
 	vector<FullReport> fr(launches);
 	vector<double> final;
@@ -306,7 +296,7 @@ void start_gapso(const int &fcode, const int &n, const int &launches, const int 
 	points_file.close();
 	fclose(output_file);
 	stats stts = get_stats(final);
-	string stats_fname = "results\\Stats_GAPSO_" + namefun[fcode] + "_" + to_string(a1) + "_" + to_string(a2) + ".csv";
+	string stats_fname = "results\\Stats_GAPSO_" + namefun[fcode] + "_" + to_string(n) + "_" + to_string(a1) + "_" + to_string(a2) + ".csv";
 	FILE *stats_file = freopen(stats_fname.c_str(), "a", stdout);
 	cout_stats(stts);
 	fclose(stats_file);
@@ -328,11 +318,11 @@ int main()
 	fclose(input_file);
 	switch (mcode)
 	{
-	case 0: {start_sa(fcode, n, launches, max_call_f); break; }
-	case 1: {start_ga(fcode, n, launches, psize, max_call_f); break; }
-	case 2: {start_difevo(fcode, n, launches, psize, max_call_f); break; }
-	case 3: {start_pso(fcode, n, launches, psize, max_call_f); break; }
-	case 4: {start_gapso(fcode, n, launches, psize, max_call_f); break; }
+	case 0: {start_sa(fcode, n, launches, max_call_f); break; }					//метод имитации отжига
+	case 1: {start_ga(fcode, n, launches, psize, max_call_f); break; }			//генетический алгоритм
+	case 2: {start_difevo(fcode, n, launches, psize, max_call_f); break; }		//метод дифференциальной эволюции
+	case 3: {start_pso(fcode, n, launches, psize, max_call_f); break; }			//метод роя частиц
+	case 4: {start_gapso(fcode, n, launches, psize, max_call_f); break; }		
 	}
 	return 0;
 }
