@@ -1,0 +1,10 @@
+1
+s_kol = 5
+s = 5
+d = 1
+k = 3
+beta = 2
+nc = 3
+r1 = 2
+mut_prob = 1
+mutcode = 3
