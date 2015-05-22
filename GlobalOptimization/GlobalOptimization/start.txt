@@ -1,6 +1,8 @@
-mcode = 3
-fcode = 6
-n = 50
+2
+mcode = 0 3
+3
+fcode = 1 3 6
+n = 100
 launches = 100
 psize = 10
 max_call_f = 10000
