@@ -1,3 +1,4 @@
+1
 initial_temperature = 10000
 end_temperature = 0.0001
 inner_iter = 50
