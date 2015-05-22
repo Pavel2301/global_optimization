@@ -1,3 +1,4 @@
+1
 tournament_size = 3
 mut_type = 1
 mut_prob = 0.9
