@@ -485,7 +485,7 @@ int main()
 		{
 			switch (mcodes[i])
 			{
-			case 0: {start_sa(fcodes[j], n, launches, max_call_f); break; }					//метод имитации отжига
+			case 0: {start_sa(fcodes[j], n, launches, max_call_f); break; }				//метод имитации отжига
 			case 1: {start_ga(fcodes[j], n, launches, psize, max_call_f); break; }			//генетический алгоритм
 			case 2: {start_difevo(fcodes[j], n, launches, psize, max_call_f); break; }		//метод дифференциальной эволюции
 			case 3: {start_pso(fcodes[j], n, launches, psize, max_call_f); break; }			//метод роя частиц
