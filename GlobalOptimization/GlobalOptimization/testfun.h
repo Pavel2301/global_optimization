@@ -56,7 +56,7 @@ namespace testfun
 	double f_gauss(const int &n, const point &x)
 	{
 		double s = 0;
-		for (int i = 0; i < n; ++i)                        //!
+		for (int i = 0; i < n; ++i)                        
 		{
 			double t = x[i] * x[i];
 			s += (t*t + gauss(i));
@@ -67,7 +67,7 @@ namespace testfun
 	double f_rastrigin(const int &n, const point &x)
 	{
 		double s = 0;
-		for (int i = 0; i < n; ++i)                        //!
+		for (int i = 0; i < n; ++i)                        
 		{
 			s += (x[i] * x[i] - 10 * cos(pi2*x[i]));
 		}
@@ -370,7 +370,7 @@ namespace testfun
 	{
 		point gr(n, 0), sqrtx(n, 0);
 		for (int i = 0; i < n; ++i)
-			sqrtx[i] = sqrt(x[i]);
+			sqrtx[i] = sqrt(fabs(x[i]));
 		for (int i = 0; i < n; ++i)
 			gr[i] = -sin(sqrtx[i]) - sqrtx[i] * cos(sqrtx[i]) / 2;
 		return gr;
