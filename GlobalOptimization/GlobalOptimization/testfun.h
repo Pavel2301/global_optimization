@@ -380,7 +380,7 @@ namespace testfun
 	{
 		point gr(n, 0), sqrti(n, 0), cxi(n, 0);
 		for (int i = 0; i < n; ++i)
-			sqrti[i] = sqrt(i);
+			sqrti[i] = sqrt(double(i + 1));
 		for (int i = 0; i < n; ++i)
 			cxi[i] = cos(x[i] / sqrti[i]);
 		double s = 1;
