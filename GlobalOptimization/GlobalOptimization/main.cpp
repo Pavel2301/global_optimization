@@ -6,6 +6,7 @@
 #include <random>
 #include <chrono>
 
+#include "pt.h"
 #include "sa.h"
 #include "ga.h"
 #include "difevo.h"
