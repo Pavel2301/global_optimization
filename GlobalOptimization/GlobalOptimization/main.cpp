@@ -12,6 +12,8 @@
 #include "pso.h"
 #include "gapso.h"
 #include "ais.h"
+#include "cg.h"
+#include "cgm.h"
 #include "point.h"
 #include "report.h"
 #include "testfun.h"
@@ -460,6 +462,95 @@ void start_ais(const int &fcode, const int &n, const int &launches, const int &p
 	}
 }
 
+void start_cg(const int &fcode, const int &n, const int &launches, const int &max_call_f)
+{
+	check_points_file(fcode, n);
+	//for (int p = 0; p < num_sets; p++)
+	//{
+		ifstream points_file("points\\" + namefun[fcode] + "-" + to_string(n));
+		string output_fname = "results\\cg_FletcherRieves_" + namefun[fcode] + "_" + to_string(n)  + ".csv";
+		FILE *output_file = freopen(output_fname.c_str(), "a", stdout);
+		std::vector<FullReport> fr(launches);
+		std::vector<double> final;
+		point st(n);
+		for (int j = 0; j < n; j++)
+			points_file >> st[j];
+		fr[0] = cg_FletcherRieves(fcode, n, st, max_call_f);
+		fr[0].print_full_report_cf();
+		fr[0].print_full_report();
+		final.push_back(fr[0].show_report().back().show_value_function());
+		for (int i = 1; i < launches; i++)
+		{
+			point st(n);
+			for (int j = 0; j < n; j++)
+				points_file >> st[j];
+			fr[i] = cg_FletcherRieves(fcode, n, st, max_call_f);
+			fr[i].print_full_report();
+			final.push_back(fr[i].show_report().back().show_value_function());
+		}
+		//print_mean(fr, launches);
+		points_file.close();
+		fclose(output_file);
+		stats stts = get_stats(final);
+		string stats_fname = "results\\Stats_cg_FletcherRieves_" + namefun[fcode] + "_" + to_string(n) + ".csv";
+		FILE *stats_file = freopen(stats_fname.c_str(), "a", stdout);
+		cout_stats(stts);
+		fclose(stats_file);
+		final.clear();
+	//}
+}
+
+void start_cgm(const int &fcode, const int &n, const int &launches, const int &max_call_f)
+{
+	ifstream config_file("config\\cgm.txt");
+	string s;
+	char c;
+	int num_sets;
+	config_file >> num_sets;
+	std::vector<int> cgm_type(num_sets);
+	config_file >> s >> c;
+	for (int i = 0; i < num_sets; i++)
+		config_file >> cgm_type[i];
+	config_file.close();
+	check_points_file(fcode, n);
+
+	for (int p = 0; p < num_sets; p++)
+	{
+		ifstream points_file("points\\" + namefun[fcode] + "-" + to_string(n));
+		string output_fname = "results\\cgm_" + to_string(cgm_type[p]) + "_" + namefun[fcode] + "_" + to_string(n) + "_" + to_string(launches) + ".csv";
+		FILE *output_file = freopen(output_fname.c_str(), "a", stdout);
+		vector<FullReport> fr(launches);
+		vector<double> final;
+		point st(n);
+		for (int j = 0; j < n; j++)
+			points_file >> st[j];
+		fr[0] = cgm(fcode, n, st, max_call_f, rb[fcode], cgm_type[p]);
+		fr[0].print_full_report_cf();
+		fr[0].print_full_report();
+		final.push_back(fr[0].show_report().back().show_value_function());
+
+		for (int i = 1; i < launches; i++)
+		{
+			point st(n);
+			for (int j = 0; j < n; j++)
+				points_file >> st[j];
+			fr[i] = cgm(fcode, n, st, max_call_f, rb[fcode], cgm_type[p]);
+			fr[i].print_full_report();
+			final.push_back(fr[i].show_report().back().show_value_function());
+		}
+
+		//print_mean(fr, launches);
+		points_file.close();
+		fclose(output_file);
+		stats stts = get_stats(final);
+		string stats_fname = "results\\Stats_cgm_" + to_string(cgm_type[p]) + "_" + namefun[fcode] + "_" + to_string(n) + "_" + to_string(launches) + ".csv";
+		FILE *stats_file = freopen(stats_fname.c_str(), "a", stdout);
+		cout_stats(stts);
+		fclose(stats_file);
+		final.clear();
+	}
+}
+
 int main()
 {
 	string input_fname = "start.txt";
@@ -491,6 +582,8 @@ int main()
 			case 3: {start_pso(fcodes[j], n, launches, psize, max_call_f); break; }			//метод роя частиц
 			case 4: {start_gapso(fcodes[j], n, launches, psize, max_call_f); break; }
 			case 5: {start_ais(fcodes[j], n, launches, psize, max_call_f); break;  }		//метод искусcтвенных имунных систем 
+			case 6: {start_cg(fcodes[j], n, launches, max_call_f); break; }
+			case 7: {start_cgm(fcodes[j], n, launches, max_call_f); break; }
 			}
 		}
 	return 0;
