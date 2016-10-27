@@ -36,7 +36,7 @@ namespace testfun
 	static const unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
 	static mt19937 gen(seed);
 	static normal_distribution < double > gauss_distr(0.0, 1.0);
-	double morse_p = 3;
+	double morse_rho = 3;
 
 	/* нормальное распределение - распределение Гаусса */
 	double gauss()
@@ -356,7 +356,7 @@ namespace testfun
 			return 0;
 
 		double Kor = rij(i, j, x);
-		double epow = pow(M_E, morse_p - morse_p*Kor);
+		double epow = pow(M_E, morse_rho - morse_rho*Kor);
 
 		if (Kor != 0)
 		{
@@ -371,7 +371,7 @@ namespace testfun
 	double fMorse(const int i, const int j, const point &x)
 	{
 		double Kor = rij(i, j, x);
-		double epow = pow(M_E, morse_p - morse_p*Kor);
+		double epow = pow(M_E, morse_rho - morse_rho*Kor);
 		return epow*(epow - 2.);
 	}
 
